@@ -1,0 +1,89 @@
+### dodaj ksizkę
+POST http://localhost:8080/api/books
+Content-Type: application/json
+
+{
+  "title": "Pan Tadeusz",
+  "author": "Adam Mickiewicz",
+  "genre": "Epopeja narodowa",
+  "isbn": "978-83-12345-67-8",
+  "description": "Klasyka literatury polskiej",
+  "availableCopies": 5
+}
+
+
+### Pobierz wszystkie książki
+GET http://localhost:8080/api/books
+Accept: application/json
+
+### Pobierz książkę po ID (np. 1)
+GET http://localhost:8080/api/books/1
+Accept: application/json
+
+### Dodaj nową książkę
+POST http://localhost:8080/api/books
+Content-Type: application/json
+
+{
+  "title": "Lalka",
+  "author": "Bolesław Prus",
+  "genre": "Powieść",
+  "isbn": "978-83-7654-321-0",
+  "description": "Klasyka polskiej literatury realistycznej",
+  "availableCopies": 3
+}
+
+### Aktualizuj książkę o ID 5
+PUT http://localhost:8080/api/books/5
+Content-Type: application/json
+
+{
+  "title": "Lalka (edycja poprawiona)",
+  "author": "Bolesław Prus",
+  "genre": "Powieść",
+  "isbn": "978-83-7654-321-0",
+  "description": "Edycja z poprawkami",
+  "availableCopies": 4
+}
+
+### Aktualizuj książkę o ID 6
+PUT http://localhost:8080/api/books/6
+Content-Type: application/json
+
+{
+  "title": "Ogniem i mieczem",
+  "author": "Henryk Sienkiewicz",
+  "genre": "Powieść historyczna",
+  "isbn": "978-83-7654-987-6",
+  "description": "Epicka powieść historyczna osadzona w XVII wieku",
+  "availableCopies": 10
+}
+
+### Dodaj trzecią książkę
+POST http://localhost:8080/api/books
+Content-Type: application/json
+
+{
+  "title": "Zbrodnia i kara",
+  "author": "Fiodor Dostojewski",
+  "genre": "Powieść psychologiczna",
+  "isbn": "978-83-12345-678-9",
+  "description": "Klasyczna powieść rosyjska",
+  "availableCopies": 7
+}
+
+### Dodaj czwartą książkę
+POST http://localhost:8080/api/books
+Content-Type: application/json
+
+{
+  "title": "TestUsuwania",
+  "author": "Test",
+  "genre": "Test",
+  "isbn": "978-83-12345-678-9",
+  "description": "Test",
+  "availableCopies": 7
+}
+
+### Usuń książkę o ID 4
+DELETE http://localhost:8080/api/books/4

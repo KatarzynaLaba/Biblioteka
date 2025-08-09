@@ -1,0 +1,23 @@
+### Pobierz wszystkich użytkowników
+GET http://localhost:8080/api/users
+Accept: application/json
+
+### Zarejestruj nowego użytkownika
+POST http://localhost:8080/api/users/register
+Content-Type: application/json
+
+{
+  "username": "Wojciech",
+  "password": "tajnehaslo",
+  "email": "wojtek@example.com"
+}
+
+### Zarejestruj nowego użytkownika
+POST http://localhost:8080/api/users/register
+Content-Type: application/json
+
+{
+"username": "Michał",
+"password": "tajnehaslo2",
+"email": "michal@example.com"
+}
