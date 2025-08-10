@@ -8,7 +8,7 @@ Content-Type: application/json
 
 {
   "username": "Wojciech",
-  "password": "tajnehaslo",
+  "password": "woj123",
   "email": "wojtek@example.com"
 }
 
@@ -18,6 +18,51 @@ Content-Type: application/json
 
 {
 "username": "Michał",
-"password": "tajnehaslo2",
+"password": "mic123",
 "email": "michal@example.com"
 }
+
+### Zarejestruj nowego użytkownika
+POST http://localhost:8080/api/users/register
+Content-Type: application/json
+
+{
+  "username": "Sebastian",
+  "password": "seb123",
+  "email": "seba@example.com"
+}
+
+### Zarejestruj nowego użytkownika
+POST http://localhost:8080/api/users/register
+Content-Type: application/json
+
+{
+  "username": "Anna",
+  "password": "ann123",
+  "email": "anna@example.com"
+}
+
+### Pobierz użytkownika po ID
+GET http://localhost:8080/api/users/2
+Accept: application/json
+
+
+### Usuń użytkownika
+DELETE http://localhost:8080/api/users/5
+
+
+
+### Nadaj użytkownikowi rolę ADMIN
+PUT http://localhost:8080/api/users/1/admin
+Content-Type: application/json
+
+
+### Pobierz wszystkich użytkowników jako admin z Basic Auth
+
+GET http://localhost:8080/api/users
+Accept: application/json
+
+
+### Pobierz wszystkich użytkowników (endpoint zabezpieczony Basic Auth)
+GET http://localhost:8080/api/users
+Authorization: Basic YWRtaW46YWRtaW4xMjM=

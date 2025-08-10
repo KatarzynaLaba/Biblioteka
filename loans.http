@@ -2,11 +2,17 @@
 GET http://localhost:8080/api/loans
 Accept: application/json
 
-### Wypożycz książkę (userId=1, bookId=1)
-POST http://localhost:8080/api/loans/borrow?userId=1&bookId=1
+### Wypożycz książkę (userId=1, bookId=3)
+POST http://localhost:8080/api/loans/loan?userId=1&bookId=3
+
+### Wypożycz książkę (userId=1, bookId=4)
+POST http://localhost:8080/api/loans/loan?userId=1&bookId=4
+
+### Wypożycz książkę (userId=2, bookId=3)
+POST http://localhost:8080/api/loans/loan?userId=2&bookId=3
+
+### Wypożycz książkę (userId=2, bookId=5)
+POST http://localhost:8080/api/loans/loan?userId=1&bookId=4
 
 ### Zwrot książki (loanId=1)
 POST http://localhost:8080/api/loans/return/1
-
-### Wypożycz książkę (userId=2, bookId=3)
-POST http://localhost:8080/api/loans/borrow?userId=1&bookId=1

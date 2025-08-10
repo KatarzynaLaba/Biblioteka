@@ -15,18 +15,40 @@ public class LoanController {
 
     private final LoanService loanService;
 
-    @PostMapping("/borrow")
-    public ResponseEntity<Loan> borrowBook(@RequestParam Long userId, @RequestParam Long bookId) {
-        return ResponseEntity.ok(loanService.loanBookToUser(userId, bookId));
+    @GetMapping
+    public List<Loan> getAllLoans() {
+        List<Loan> loans = loanService.getAllLoans();
+        System.out.println("Loans: " + loans);
+        return loans;
+    }
+
+    @PostMapping("/loan")
+    public ResponseEntity<Loan> loanBookToUser(@RequestParam Long userId, @RequestParam Long bookId) {
+        try {
+            Loan loan = loanService.loanBookToUser(userId, bookId);
+            return ResponseEntity.ok(loan);
+        } catch (RuntimeException e) {
+            return ResponseEntity.badRequest().body(null);
+        }
     }
 
     @PostMapping("/return/{loanId}")
     public ResponseEntity<Loan> returnBook(@PathVariable Long loanId) {
-        return ResponseEntity.ok(loanService.returnBook(loanId));
+        try {
+            Loan returnedLoan = loanService.returnBook(loanId);
+            return ResponseEntity.ok(returnedLoan);
+        } catch (RuntimeException e) {
+            return ResponseEntity.badRequest().body(null);
+        }
     }
 
-    @GetMapping
-    public ResponseEntity<List<Loan>> getAllLoans() {
-        return ResponseEntity.ok(loanService.getAllLoans());
+    @PutMapping("/{id}")
+    public ResponseEntity<Loan> updateLoan(@PathVariable Long id, @RequestBody Loan loan) {
+        try {
+            Loan updatedLoan = loanService.updateLoan(id, loan);
+            return ResponseEntity.ok(updatedLoan);
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 }

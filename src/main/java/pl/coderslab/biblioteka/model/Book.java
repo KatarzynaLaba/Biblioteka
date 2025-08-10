@@ -1,7 +1,11 @@
 package pl.coderslab.biblioteka.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Entity
 @Getter
@@ -19,7 +23,11 @@ public class Book {
     @Column(nullable = false)
     private String title;
 
-    private String author;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "author_id")
+    @JsonBackReference
+    private Author author;
+
     private String genre;
     private String isbn;
 
@@ -27,4 +35,8 @@ public class Book {
     private String description;
 
     private int availableCopies;
+
+    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private List<Loan> loans;
 }

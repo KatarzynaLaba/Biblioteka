@@ -65,5 +65,17 @@ public class LoanService {
         loan.setReturnDate(LocalDate.now());
         return loanRepository.save(loan);
     }
+
+    public Loan updateLoan(Long id, Loan loanDetails) {
+        Loan existing = loanRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Loan not found"));
+
+        existing.setBook(loanDetails.getBook());
+        existing.setUser(loanDetails.getUser());
+        existing.setLoanDate(loanDetails.getLoanDate());
+        existing.setReturnDate(loanDetails.getReturnDate());
+
+        return loanRepository.save(existing);
+    }
 }
 

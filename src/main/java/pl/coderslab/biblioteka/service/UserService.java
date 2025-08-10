@@ -29,18 +29,25 @@ public class UserService {
         return userRepository.findByUsername(username);
     }
 
-/*    public User save(User user) {
-        // Hasło szyfrujemy przed zapisem
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        return userRepository.save(user);
-    }*/
+
     public User registerUser(User user) {
     user.setPassword(passwordEncoder.encode(user.getPassword()));
     user.setRole(Role.ROLE_USER); // domyślna rola
     return userRepository.save(user);
-}
+    }
 
     public void deleteById(Long id) {
         userRepository.deleteById(id);
+    }
+
+    public User updateUser(Long id, User updateUser) {
+        User existing = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        existing.setUsername(updateUser.getUsername());
+        existing.setEmail(updateUser.getEmail());
+        existing.setPassword(updateUser.getPassword());
+
+        return userRepository.save(existing);
     }
 }

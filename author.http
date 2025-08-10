@@ -1,0 +1,50 @@
+### Dodaj nowego autora
+POST http://localhost:8080/api/authors
+Content-Type: application/json
+
+{
+  "firstName": "Andrzej",
+  "lastName": "Sapkowski",
+  "bio": "Polski pisarz fantasy. Twórca postaci Wiedźmina."
+}
+
+### Dodaj nowego autora
+POST http://localhost:8080/api/authors
+Content-Type: application/json
+
+{
+  "firstName": "Adam",
+  "lastName": "Mickiewicz",
+  "bio": "Polski poeta, działacz polityczny, publicysta, tłumacz"
+}
+
+### Dodaj nowego autora
+POST http://localhost:8080/api/authors
+Content-Type: application/json
+
+{
+  "firstName": "Bolesław",
+  "lastName": "Prus",
+  "bio": "Polski pisarz, prozaik, publicysta okresu pozytywizmu"
+}
+
+### Pobierz wszystkich autorów
+GET http://localhost:8080/api/authors
+Accept: application/json
+
+### Pobierz autora po ID
+GET http://localhost:8080/api/authors/2
+Accept: application/json
+
+### Usuń autora o id x
+DELETE http://localhost:8080/api/authors/5
+
+### Dodaj nowego autora testusuwania
+POST http://localhost:8080/api/authors
+Content-Type: application/json
+
+{
+  "firstName": "Test",
+  "lastName": "Testowy",
+  "bio": "Test"
+}
