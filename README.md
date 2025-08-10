@@ -11,4 +11,4 @@ Aplikacja **Biblioteka Online** to projekt w języku Java, oparty na Spring Boot
 - Maven
   
 🚧 Status projektu
-Projekt jest w fazie aktywnego rozwoju. Niektóre funkcje mogą być jeszcze niekompletne lub w trakcie implementacji.
+Projekt jest w fazie rozwoju. Niektóre funkcje mogą być jeszcze niekompletne lub w trakcie implementacji.
